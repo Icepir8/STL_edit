@@ -137,9 +137,43 @@ namespace STL_Edit
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
+            float height = pictureBox1.Height * 0.8F / 2.0F;
+            float width = pictureBox1.Width * 0.8F / 2.0f;
+
             switch(mouseMode)
             {
                 case MODE.XYAXIS:
+                    float difX = (e.Location.X - refPoint.X) / height;
+                    float difY = (e.Location.Y - refPoint.Y) / width;
+
+                    float sinX = (difX > 1) ? 1 : (difX < -1) ? -1 : difX;
+                    float sinY = (difY > 1) ? 1 : (difY < -1) ? -1 : difY;
+
+                    float cosX = (float)Math.Sqrt(1 - (sinX * sinX));
+                    float cosY = (float)Math.Sqrt(1 - (sinY * sinY));
+
+                    MyMatrix tempMtx = new MyMatrix(refMtx);
+                    MyMatrix rotX = new MyMatrix();
+                    {
+                        rotX.Elements[0, 0] = cosX;
+                        rotX.Elements[0, 2] = -sinX;
+                        rotX.Elements[2, 0] = sinX;
+                        rotX.Elements[2, 2] = cosX;
+                    };
+
+                    MyMatrix rotY = new MyMatrix();
+                    {
+                        rotY.Elements[1, 1] = cosY;
+                        rotY.Elements[1, 2] = -sinY;
+                        rotY.Elements[2, 1] = sinY;
+                        rotY.Elements[2, 2] = cosY;
+                    };
+
+                    tempMtx.Multiply(rotX);
+                    tempMtx.Multiply(rotY);
+
+                    rotateMtx = tempMtx;
+                    RotateView_Paint(null, null);
                     break;
                 case MODE.ZAXIS:
                     break;

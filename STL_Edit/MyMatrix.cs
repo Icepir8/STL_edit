@@ -22,6 +22,7 @@ namespace STL_Edit
 
         public MyMatrix(MyMatrix mtx)
         {
+            Elements = new float[3, 3];
             for (int j = 0; j < 3; j++)
                 for (int i = 0; i < 3; i++)
                     Elements[i, j] = mtx.Elements[i, j];

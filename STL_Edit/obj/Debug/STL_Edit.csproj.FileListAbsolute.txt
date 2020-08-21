@@ -10,3 +10,15 @@ D:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.pdb
 D:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.Main.resources
 D:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.EditSTL.resources
 D:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.RotateView.resources
+C:\MyProjects\STL_Edit\STL_Edit\bin\Debug\STL_Edit.exe.config
+C:\MyProjects\STL_Edit\STL_Edit\bin\Debug\STL_Edit.exe
+C:\MyProjects\STL_Edit\STL_Edit\bin\Debug\STL_Edit.pdb
+C:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.csprojAssemblyReference.cache
+C:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.EditSTL.resources
+C:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.Main.resources
+C:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.Properties.Resources.resources
+C:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.RotateView.resources
+C:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.csproj.GenerateResource.cache
+C:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.csproj.CoreCompileInputs.cache
+C:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.exe
+C:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.pdb
