@@ -1,0 +1,12 @@
+D:\MyProjects\STL_Edit\STL_Edit\bin\Debug\STL_Edit.exe.config
+D:\MyProjects\STL_Edit\STL_Edit\bin\Debug\STL_Edit.exe
+D:\MyProjects\STL_Edit\STL_Edit\bin\Debug\STL_Edit.pdb
+D:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.csprojAssemblyReference.cache
+D:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.Properties.Resources.resources
+D:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.csproj.GenerateResource.cache
+D:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.csproj.CoreCompileInputs.cache
+D:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.exe
+D:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.pdb
+D:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.Main.resources
+D:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.EditSTL.resources
+D:\MyProjects\STL_Edit\STL_Edit\obj\Debug\STL_Edit.RotateView.resources
