@@ -147,6 +147,43 @@ namespace STL_Edit
             }
         }
 
+        public void RenderRot(Bitmap Canvas,MyMatrix rotMtx, int start, int end)
+        {
+            Graphics _gfx1 = Graphics.FromImage(Canvas);
+
+            float scaleX = Canvas.Width / (MaxX - MinX);
+            float scaleY = Canvas.Height / (MaxY - MinY);
+
+            float scaleBy = (scaleX < scaleY) ? scaleX : scaleY;
+
+            float centerX = (MaxX + MinX) / 2;
+            float centerY = (MaxY + MinY) / 2;
+            float centerZ = (MaxZ + MinZ) / 2;
+
+            for (int select = start; select < end; select++)
+            {
+                stlTriangle triangle = Facettes[select];
+                PointF[] points = new PointF[4];
+
+                int idx = 0;
+
+                foreach (stlVertex vertex in triangle.Vertexes)
+                {
+                    float X = (vertex.X - centerX) * scaleBy;// + (Canvas.Width / 2);
+                    float Y = (vertex.Y - centerY) * -scaleBy;// + (Canvas.Height / 2);
+                    float Z = (vertex.Z - centerZ) * scaleBy;
+
+                    float[] rotVtx = rotMtx.TranformVector(new float[] { X, Y, Z });
+
+                    points[idx++] = new PointF(rotVtx[0] + (Canvas.Width / 2), rotVtx[1] + (Canvas.Height / 2));
+                }
+
+                points[idx++] = points[0];
+
+                _gfx1.DrawLines(Pens.Black, points);
+            }
+        }
+
         public void Render(Bitmap Canvas,int start, int end)
         {
             if (gfx1 == null)

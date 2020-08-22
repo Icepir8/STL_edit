@@ -34,6 +34,7 @@ namespace STL_Edit
         {
             int height = panel2.Height;
             int width = panel2.Width;
+            rotateView1.rotateMtx = new MyMatrix();
 
             pictureBox1.Height = height;
             pictureBox1.Width = width;
@@ -175,6 +176,28 @@ namespace STL_Edit
         private void EditSTL_SizeChanged(object sender, EventArgs e)
         {
             Form1_Resize(null, null);
+        }
+
+        private void rotateView1_ViewChanged_1(object sender, EventArgs e)
+        {
+            int height = panel2.Height;
+            int width = panel2.Width;
+
+            pictureBox1.Height = height;
+            pictureBox1.Width = width;
+            pictureBox1.Top = 0;
+            pictureBox1.Left = 0;
+
+            Bitmap stlBitmap1 = new Bitmap(pictureBox1.Width, pictureBox1.Height, PixelFormat.Format32bppArgb);
+            Model.RenderRot(stlBitmap1, rotateView1.rotateMtx, 0, Model.Facettes.Count);
+
+            pictureBox1.Image = stlBitmap1;
+            pictureBox2.Visible = false;
+            pictureBox3.Visible = false;
+            pictureBox4.Visible = false;
+
+            label1.Text = $"Design Name: {Model.DesignName}";
+            Application.DoEvents();
         }
     }
 }

@@ -39,6 +39,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.rotateView1 = new STL_Edit.RotateView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -46,6 +47,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,7 +60,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 33);
+            this.panel1.Size = new System.Drawing.Size(917, 33);
             this.panel1.TabIndex = 0;
             // 
             // btnLookXYZ
@@ -112,7 +114,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.rotateView1);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Controls.Add(this.pictureBox2);
@@ -120,7 +121,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 33);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 417);
+            this.panel2.Size = new System.Drawing.Size(850, 456);
             this.panel2.TabIndex = 1;
             // 
             // pictureBox4
@@ -155,19 +156,31 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
+            // panel3
+            // 
+            this.panel3.AutoSize = true;
+            this.panel3.Controls.Add(this.rotateView1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(850, 33);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(67, 456);
+            this.panel3.TabIndex = 11;
+            // 
             // rotateView1
             // 
-            this.rotateView1.Location = new System.Drawing.Point(623, 17);
+            this.rotateView1.Location = new System.Drawing.Point(0, 0);
             this.rotateView1.Name = "rotateView1";
-            this.rotateView1.Size = new System.Drawing.Size(150, 150);
-            this.rotateView1.TabIndex = 9;
+            this.rotateView1.Size = new System.Drawing.Size(64, 64);
+            this.rotateView1.TabIndex = 10;
+            this.rotateView1.ViewChanged += new System.EventHandler(this.rotateView1_ViewChanged_1);
             // 
             // EditSTL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(917, 489);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "EditSTL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -182,7 +195,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -199,6 +214,7 @@
         private System.Windows.Forms.Button btnLookX;
         private System.Windows.Forms.Button btnLookY;
         private System.Windows.Forms.Button btnLookZ;
+        private System.Windows.Forms.Panel panel3;
         private RotateView rotateView1;
     }
 }

@@ -50,7 +50,7 @@ namespace STL_Edit
             new PointF(0F, 0F),
         };
 
-        MyMatrix rotateMtx = new MyMatrix();
+        public MyMatrix rotateMtx = new MyMatrix();
 
         MyMatrix Xrotate = new MyMatrix(new float[3, 3] { { 1, 0, 0 }, { 0, 0.9807853F, -0.1950903F }, { 0, 0.1950903F, 0.9807853F } });
         MyMatrix Yrotate = new MyMatrix(new float[3, 3] { { 0.9807853F, 0, 0.1950903F }, { 0, 1, 0 }, { -0.1950903F, 0, 0.9807853F } });
@@ -60,16 +60,21 @@ namespace STL_Edit
         PointF[] XCircle = new PointF[33];
         PointF[] YCircle = new PointF[33];
         PointF[] ZCircle = new PointF[33];
+        PointF[] RCircle = new PointF[33];
 
         Pen Xpen = new Pen(Brushes.Blue, 2);
         Pen Ypen = new Pen(Brushes.Black, 2);
         Pen Zpen = new Pen(Brushes.Red, 2);
+        Pen RPen = new Pen(Brushes.Green, 3);
 
         Point refPoint;
         MODE mouseMode = MODE.INACTIVE;
         MyMatrix refMtx = new MyMatrix();
 
         Timer timer = new Timer();
+
+        public event EventHandler ViewChanged;
+
         public RotateView()
         {
             InitializeComponent();
@@ -101,6 +106,8 @@ namespace STL_Edit
 
             Graphics grfx = Graphics.FromImage(bitmap);
 
+            grfx.Clear(Color.White);
+
             for (int i =0; i<circle.Length;i++)
             {
                 float x = (circle[i].X * width * 0.8F) /2;
@@ -118,12 +125,20 @@ namespace STL_Edit
 
                 ZCircle[i].X = Zcoords[0] + width / 2;
                 ZCircle[i].Y = Zcoords[1] + height / 2;
+
+                x = (circle[i].X * width) / 2;
+                y = (circle[i].Y * height) / 2;
+
+                RCircle[i].X = x + width / 2;
+                RCircle[i].Y = y + height / 2;
             }
+
+            RCircle[32] = RCircle[0];
 
             grfx.DrawLines(Xpen, XCircle);
             grfx.DrawLines(Ypen, YCircle);
             grfx.DrawLines(Zpen, ZCircle);
-
+            grfx.DrawLines(RPen, RCircle);
             pictureBox1.Image = bitmap;
             //timer.Enabled = true;
         }
@@ -131,7 +146,23 @@ namespace STL_Edit
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             refPoint = e.Location;
-            mouseMode = MODE.XYAXIS;
+
+            float CenterX = pictureBox1.Width / 2.0F;
+            float CenterY = pictureBox1.Height / 2.0F;
+
+            float posX = (e.Location.X - CenterX) / CenterX;
+            float posY = (e.Location.Y - CenterY) / CenterY;
+
+            float length = (float)Math.Sqrt(posX * posX + posY * posY);
+
+            if (length > 0.8F)
+            {
+                mouseMode = MODE.ZAXIS;
+            }
+            else
+            {
+                mouseMode = MODE.XYAXIS;
+            }
             refMtx = new MyMatrix(rotateMtx);
         }
 
@@ -140,7 +171,9 @@ namespace STL_Edit
             float height = pictureBox1.Height * 0.8F / 2.0F;
             float width = pictureBox1.Width * 0.8F / 2.0f;
 
-            switch(mouseMode)
+            MyMatrix tempMtx = new MyMatrix(refMtx);
+
+            switch (mouseMode)
             {
                 case MODE.XYAXIS:
                     float difX = (e.Location.X - refPoint.X) / height;
@@ -152,7 +185,6 @@ namespace STL_Edit
                     float cosX = (float)Math.Sqrt(1 - (sinX * sinX));
                     float cosY = (float)Math.Sqrt(1 - (sinY * sinY));
 
-                    MyMatrix tempMtx = new MyMatrix(refMtx);
                     MyMatrix rotX = new MyMatrix();
                     {
                         rotX.Elements[0, 0] = cosX;
@@ -174,8 +206,46 @@ namespace STL_Edit
 
                     rotateMtx = tempMtx;
                     RotateView_Paint(null, null);
+
+                    if (ViewChanged != null)
+                    {
+                        ViewChanged(this, new EventArgs());
+                    }
                     break;
                 case MODE.ZAXIS:
+
+                    float CenterX = pictureBox1.Width / 2.0F;
+                    float CenterY = pictureBox1.Height / 2.0F;
+
+                    float posX = (e.Location.X - CenterX) / CenterX;
+                    float posY = (e.Location.Y - CenterY) / CenterY;
+
+                    float length = (float)Math.Sqrt(posX * posX + posY * posY);
+
+                    if (length > 0)
+                    {
+                        float sinZ = posY / length;
+                        float cosZ = posX / length;
+
+                        MyMatrix rotZ = new MyMatrix();
+                        {
+                            rotZ.Elements[0, 0] = -cosZ;
+                            rotZ.Elements[0, 1] = -sinZ;
+                            rotZ.Elements[1, 0] = sinZ;
+                            rotZ.Elements[1, 1] = -cosZ;
+                        };
+
+                        tempMtx.Multiply(rotZ);
+
+                        rotateMtx = tempMtx;
+                        RotateView_Paint(null, null);
+
+                        if (ViewChanged != null)
+                        {
+                            ViewChanged(this, new EventArgs());
+                        }
+                    }
+
                     break;
                 case MODE.OTHER:
                 case MODE.INACTIVE:
