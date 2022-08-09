@@ -8,7 +8,7 @@ namespace STL_Edit
 {
     public class stlVertex: stlVECTOR
     {
-        public stlVertex(float X, float Y, float Z) : base(X, Y, Z)
+        public stlVertex(double X, double Y, double Z) : base(X, Y, Z)
         {
         }
         public stlVertex() : base()

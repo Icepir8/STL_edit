@@ -8,11 +8,11 @@ namespace STL_Edit
 {
     public abstract class stlVECTOR
     {
-        public float X { get; set; }
-        public float Y { get; set; }
-        public float Z { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Z { get; set; }
 
-        public stlVECTOR(float X, float Y, float Z)
+        public stlVECTOR(double X, double Y, double Z)
         {
             this.X = X;
             this.Y = Y;

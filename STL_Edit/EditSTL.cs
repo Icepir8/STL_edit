@@ -14,7 +14,7 @@ namespace STL_Edit
 {
     public partial class EditSTL : Form
     {
-        stlObject Model;
+        public stlObject Model;
 
         public EditSTL()
         {
@@ -22,12 +22,24 @@ namespace STL_Edit
             Form1_Resize(null, null);
         }
 
-        public void LoadSTL(string FileName)
+        public EditSTL(stlObject newModel)
         {
-            Model = new stlObject();
-            Model.Load(FileName);
+            InitializeComponent();
+            Model = newModel;
+            Form1_Resize(null, null);
+        }
+
+        public void LoadSTL(string FileName, int LoadType)
+        {
+            Model = new stlObject(this);
+            Model.Load(FileName,(LOADTYPE)LoadType);
 
             RenderSTL();
+        }
+
+        public void SaveSTL(string FileName, int SaveType)
+        {
+            Model.Save(FileName, (SAVETYPE)SaveType);
         }
 
         private void btnLookZ_Click(object sender, EventArgs e)
@@ -52,6 +64,8 @@ namespace STL_Edit
             pictureBox4.Visible = false;
 
             label1.Text = $"Design Name: {Model.DesignName}";
+            this.Text = Model.DesignName;
+
             Application.DoEvents();
         }
 
@@ -76,6 +90,8 @@ namespace STL_Edit
             pictureBox4.Visible = false;
 
             label1.Text = $"Design Name: {Model.DesignName}";
+            this.Text = Model.DesignName;
+
             Application.DoEvents();
         }
 
@@ -100,6 +116,8 @@ namespace STL_Edit
             pictureBox4.Visible = false;
 
             label1.Text = $"Design Name: {Model.DesignName}";
+            this.Text = Model.DesignName;
+
             Application.DoEvents();
         }
 
@@ -124,6 +142,8 @@ namespace STL_Edit
             pictureBox4.Visible = true;
 
             label1.Text = $"Design Name: {Model.DesignName}";
+            this.Text = Model.DesignName;
+
             Application.DoEvents();
         }
 
@@ -140,7 +160,10 @@ namespace STL_Edit
                 pictureBox1.Image = stlBitmap1;
                 pictureBox2.Image = stlBitmap2;
                 pictureBox3.Image = stlBitmap3;
-                label1.Text = $"Design Name: {Model.DesignName}"; 
+
+                label1.Text = $"Design Name: {Model.DesignName}";
+                this.Text = Model.DesignName;
+
                 Application.DoEvents();
             }
         }
@@ -198,6 +221,23 @@ namespace STL_Edit
 
             label1.Text = $"Design Name: {Model.DesignName}";
             Application.DoEvents();
+        }
+
+        private void rotateView1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public stlObject[] Explode()
+        {
+            Model.ExplodeDesign();
+            return Model.parts.ToArray();
+        }
+
+        
+        public void HallowOut()
+        {
+            Model.HallowOut();
         }
     }
 }

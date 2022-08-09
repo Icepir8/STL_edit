@@ -8,7 +8,7 @@ namespace STL_Edit
 {
     public class stlNormal: stlVECTOR
     {
-        public stlNormal(float X, float Y, float Z) : base(X, Y, Z)
+        public stlNormal(double X, double Y, double Z) : base(X, Y, Z)
         {
         }
 

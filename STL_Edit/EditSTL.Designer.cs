@@ -59,15 +59,17 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(917, 33);
+            this.panel1.Size = new System.Drawing.Size(1376, 51);
             this.panel1.TabIndex = 0;
             // 
             // btnLookXYZ
             // 
-            this.btnLookXYZ.Location = new System.Drawing.Point(623, 5);
+            this.btnLookXYZ.Location = new System.Drawing.Point(934, 8);
+            this.btnLookXYZ.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLookXYZ.Name = "btnLookXYZ";
-            this.btnLookXYZ.Size = new System.Drawing.Size(75, 23);
+            this.btnLookXYZ.Size = new System.Drawing.Size(112, 35);
             this.btnLookXYZ.TabIndex = 5;
             this.btnLookXYZ.Text = "Tri-View";
             this.btnLookXYZ.UseVisualStyleBackColor = true;
@@ -75,9 +77,10 @@
             // 
             // btnLookX
             // 
-            this.btnLookX.Location = new System.Drawing.Point(524, 5);
+            this.btnLookX.Location = new System.Drawing.Point(786, 8);
+            this.btnLookX.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLookX.Name = "btnLookX";
-            this.btnLookX.Size = new System.Drawing.Size(75, 23);
+            this.btnLookX.Size = new System.Drawing.Size(112, 35);
             this.btnLookX.TabIndex = 4;
             this.btnLookX.Text = "Look at X";
             this.btnLookX.UseVisualStyleBackColor = true;
@@ -85,9 +88,10 @@
             // 
             // btnLookY
             // 
-            this.btnLookY.Location = new System.Drawing.Point(425, 5);
+            this.btnLookY.Location = new System.Drawing.Point(638, 8);
+            this.btnLookY.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLookY.Name = "btnLookY";
-            this.btnLookY.Size = new System.Drawing.Size(75, 23);
+            this.btnLookY.Size = new System.Drawing.Size(112, 35);
             this.btnLookY.TabIndex = 3;
             this.btnLookY.Text = "Look at Y";
             this.btnLookY.UseVisualStyleBackColor = true;
@@ -95,9 +99,10 @@
             // 
             // btnLookZ
             // 
-            this.btnLookZ.Location = new System.Drawing.Point(326, 5);
+            this.btnLookZ.Location = new System.Drawing.Point(489, 8);
+            this.btnLookZ.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLookZ.Name = "btnLookZ";
-            this.btnLookZ.Size = new System.Drawing.Size(75, 23);
+            this.btnLookZ.Size = new System.Drawing.Size(112, 35);
             this.btnLookZ.TabIndex = 2;
             this.btnLookZ.Text = "Look at Z";
             this.btnLookZ.UseVisualStyleBackColor = true;
@@ -106,9 +111,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 10);
+            this.label1.Location = new System.Drawing.Point(18, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             // 
@@ -119,40 +125,45 @@
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 33);
+            this.panel2.Location = new System.Drawing.Point(0, 51);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(850, 456);
+            this.panel2.Size = new System.Drawing.Size(1274, 701);
             this.panel2.TabIndex = 1;
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(503, 265);
+            this.pictureBox4.Location = new System.Drawing.Point(754, 408);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox4.Size = new System.Drawing.Size(150, 77);
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(198, 247);
+            this.pictureBox3.Location = new System.Drawing.Point(297, 380);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox3.Size = new System.Drawing.Size(150, 77);
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(503, 101);
+            this.pictureBox2.Location = new System.Drawing.Point(754, 155);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox2.Size = new System.Drawing.Size(150, 77);
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(198, 101);
+            this.pictureBox1.Location = new System.Drawing.Point(297, 155);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(150, 77);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -161,27 +172,31 @@
             this.panel3.AutoSize = true;
             this.panel3.Controls.Add(this.rotateView1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(850, 33);
+            this.panel3.Location = new System.Drawing.Point(1274, 51);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(67, 456);
+            this.panel3.Size = new System.Drawing.Size(102, 701);
             this.panel3.TabIndex = 11;
             // 
             // rotateView1
             // 
             this.rotateView1.Location = new System.Drawing.Point(0, 0);
+            this.rotateView1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.rotateView1.Name = "rotateView1";
-            this.rotateView1.Size = new System.Drawing.Size(64, 64);
+            this.rotateView1.Size = new System.Drawing.Size(96, 98);
             this.rotateView1.TabIndex = 10;
             this.rotateView1.ViewChanged += new System.EventHandler(this.rotateView1_ViewChanged_1);
+            this.rotateView1.Load += new System.EventHandler(this.rotateView1_Load);
             // 
             // EditSTL
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(917, 489);
+            this.ClientSize = new System.Drawing.Size(1376, 752);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "EditSTL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

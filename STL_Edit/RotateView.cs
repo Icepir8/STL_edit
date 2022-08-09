@@ -105,7 +105,7 @@ namespace STL_Edit
             Bitmap bitmap = new Bitmap(width, height, PixelFormat.Format32bppArgb);
 
             Graphics grfx = Graphics.FromImage(bitmap);
-
+            
             grfx.Clear(Color.White);
 
             for (int i =0; i<circle.Length;i++)
